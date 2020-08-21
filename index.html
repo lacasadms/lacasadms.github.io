@@ -46,6 +46,37 @@ layout: compress
                                     <span class="meta__date">{{ post.date | date: "%Y-%m-%d" }}</span>
                                 </div>
                                 {{ post.content }}
+                                <div id="carouselIndicators" class="carousel slide" data-ride="carousel">
+                                    <ol class="carousel-indicators">
+                                    {% assign active = true %}
+                                    {% for img in site.static_files %}
+                                        {% if img.path contains 'img/kinyeti' %}
+                                        <li data-target="#carouselIndicators" {%if active %}class="active"{%endif%} data-slide-to="{% increment my_counter %}"></li>
+                                        {% assign active = false %}
+                                        {% endif %}
+                                    {% endfor %}
+                                    </ol>
+                                    <div class="carousel-inner">
+                                    {% assign active = true %}
+                                    {% for img in site.static_files %}
+                                        {% if img.path contains 'img/kinyeti' %}
+                                        <div class="carousel-item {%if active %}active{%endif%}">
+                                            {% assign active = false %}
+                                        <img src="{{ img.path | relative_url }}" class="d-block w-100 h-100">
+                                      </div>
+                                        {% endif %}
+                                    {% endfor %}
+                                    </div>
+                                    <a class="carousel-control-prev" href="#carouselIndicators" role="button" data-slide="prev">
+                                      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                      <span class="sr-only">Previous</span>
+                                    </a>
+                                    <a class="carousel-control-next" href="#carouselIndicators" role="button" data-slide="next">
+                                      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                      <span class="sr-only">Next</span>
+                                    </a>
+                                  </div>
+
                             </div>
                         </div>
                     </div>
