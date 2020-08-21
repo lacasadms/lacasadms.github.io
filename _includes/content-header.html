@@ -1,0 +1,15 @@
+
+    <header class="header">
+        <h1>{{ site.title }}<span>¿Cómo es la casa de tus sueños?</span></h1>
+        <nav class="links">
+            <a href="./contact.html"><i class="fa fa-at fa-3x"></i></a>
+            <a href="http://m.me/lacasadms"><i class="fa fa-comments fa-3x"></i></a>
+            <a href="https://www.facebook.com/pg/lacasadms"><i class="fa fa-facebook-square fa-3x"></i></a>
+
+            {% if page.url != "/blog/" %}
+            	<a href="/blog"><i class="fa fa-bullhorn fa-3x"></i></a>
+            {% else %}
+            	<a href="/"><i class="fa fa-home fa-3x"></i></a>
+            {% endif %}
+        </nav>
+    </header>
